@@ -93,7 +93,9 @@ aside {
   position: relative;
 }
 .board-light {
-  background-image: url("../src/white\ star.jpeg");
+  background-image: url("../src/white.png");
+  background-repeat: repeat;
+  background-size: cover;
 }
 .board-dark {
   background-image: url("../src/darkstar.jpeg");
@@ -142,10 +144,10 @@ aside {
 .grid-board {
   background-color: black;
   display: grid;
-  grid-template-columns: repeat(10, 1fr);
-  grid-template-rows: repeat(25, 1fr);
-  gap: 1px;
-  width: 265px;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(20, 1fr);
+  width: 360px;
+  height: 600px;
 }
 .modal {
   position: absolute;
@@ -156,7 +158,7 @@ aside {
   top: 200px;
   display: grid;
   place-items: center;
-  width: 280px;
+  width: 300px;
   gap: 20px;
 }
 .play {

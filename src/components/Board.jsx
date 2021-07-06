@@ -3,8 +3,8 @@ import useSwitch from "../Hooks/mode";
 
 export default function Board() {
   const mode = useSwitch((store) => store.mode);
-  let arrayColumn = Array(10).fill("");
-  let arrayRows = Array(25).fill("");
+  let arrayColumn = Array(12).fill("");
+  let arrayRows = Array(20).fill("");
   const history = useHistory();
   return (
     <div className={`board ${mode === "Light" ? "board-light" : "board-dark"}`}>

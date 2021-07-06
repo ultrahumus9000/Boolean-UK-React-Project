@@ -1,10 +1,19 @@
 import useSwitch from "../Hooks/mode";
+import createGrids from "../helper";
+import { useBoard } from "../Hooks/useBoard";
+import { usePiece } from "../Hooks/usePiece";
+import { randomTetriminos } from "../Hooks/tetrominos";
 export default function Aside() {
   const { mode, toggleMode } = useSwitch((store) => {
     let { mode, toggleMode } = store;
     return { mode, toggleMode };
   });
-
+  const [board, setBoard] = useBoard();
+  const [piece, setPiece] = usePiece();
+  function restart() {
+    setBoard(createGrids());
+    setPiece({ ...randomTetriminos(), collided: false });
+  }
   return (
     <aside>
       <button className={`mode ${mode}`} onClick={toggleMode}>
@@ -39,6 +48,7 @@ export default function Aside() {
         </button>
         <button
           className={`${mode === "Light" ? "button-light" : "button-dark"}`}
+          onClick={restart}
         >
           Restart
         </button>
