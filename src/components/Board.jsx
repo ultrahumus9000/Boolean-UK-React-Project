@@ -1,12 +1,30 @@
+import { useHistory } from "react-router-dom";
+import useSwitch from "../Hooks/mode";
+
 export default function Board() {
+  const mode = useSwitch((store) => store.mode);
+  let arrayColumn = Array(10).fill("");
+  let arrayRows = Array(25).fill("");
+  const history = useHistory();
   return (
-    <div className="board">
-      <h1>board</h1>
-      <section className="control-panel">
-        <button>Rotate</button>
-        <button>Right</button>
-        <button>Left</button>
-        <button>Down</button>
+    <div className={`board ${mode === "Light" ? "board-light" : "board-dark"}`}>
+      <section className="modal">
+        <h1>Tetris</h1>
+        <button
+          className="play"
+          onClick={() => {
+            history.push("/tetris");
+          }}
+        >
+          Play
+        </button>
+      </section>
+      <section className="grid-board">
+        {arrayRows.map((row, rowIndex) => {
+          return arrayColumn.map((col, colIndex) => (
+            <div className="cell"></div>
+          ));
+        })}
       </section>
     </div>
   );
