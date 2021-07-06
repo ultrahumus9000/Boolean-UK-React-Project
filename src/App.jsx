@@ -1,7 +1,7 @@
 import { Route } from "react-router";
 import Aside from "./components/Aside";
 import Board from "./components/Board";
-import GameStart from "./components/BoardGame";
+import GameStart from "./components/Tetris";
 import ControlPanel from "./components/Right";
 import useSwitch from "./Hooks/mode";
 

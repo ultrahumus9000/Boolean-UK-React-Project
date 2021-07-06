@@ -1,0 +1,15 @@
+import create from "zustand";
+
+const useStore = create((set, get) => {});
+
+export default useStore;
+export function randomTetriminos() {}
+const tetriminos = [
+  { style: [[""], [], [], []], color: "red" },
+  {},
+  {},
+  {},
+  {},
+  {},
+  {},
+];

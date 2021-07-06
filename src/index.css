@@ -141,12 +141,11 @@ aside {
 }
 .grid-board {
   background-color: black;
-  margin-bottom: 20px;
   display: grid;
   grid-template-columns: repeat(10, 1fr);
   grid-template-rows: repeat(25, 1fr);
-  padding: 0px;
-  width: 270px;
+  gap: 1px;
+  width: 265px;
 }
 .modal {
   position: absolute;
@@ -178,10 +177,6 @@ aside {
 }
 .cell {
   border: 1px solid gray;
-
-  height: 23px;
-  width: 23px;
-  margin: 0px;
 }
 @keyframes play {
   from {
