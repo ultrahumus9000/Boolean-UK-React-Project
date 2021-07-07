@@ -14,7 +14,7 @@
 }
 aside .Dark {
   color: white;
-  background: teal;
+  background: linear-gradient(45deg, teal, coral);
 }
 .App {
   height: 100vh;
@@ -62,7 +62,7 @@ aside {
   padding: 20px 0px;
 }
 .button-dark {
-  background-color: teal;
+  background: linear-gradient(45deg, teal, coral);
   color: white;
   height: 45px;
   border: none;
@@ -110,9 +110,14 @@ aside {
   margin-top: 100px;
   height: 220px;
   background-color: #00808030;
-  border: 4px solid teal;
+  border: 4px solid black;
   border-radius: 20px;
 }
+.dark-control-panel {
+  border: 4px solid thistle;
+  background: #d8bfd830;
+}
+
 .control-panel button {
   width: 70px;
   height: 70px;
@@ -126,28 +131,46 @@ aside {
   top: 20px;
   left: 170px;
 }
+.dark-rotate {
+  color: white;
+  background: linear-gradient(45deg, lightcoral, teal);
+}
 .right {
   position: absolute;
   top: 70px;
   right: 100px;
+}
+.dark-right {
+  color: white;
+  background: linear-gradient(45deg, lightcoral, rgb(3, 92, 92));
 }
 .left {
   position: absolute;
   top: 70px;
   left: 90px;
 }
+.dark-left {
+  color: white;
+  background: linear-gradient(45deg, lightcoral, teal);
+}
 .down {
   position: absolute;
   left: 170px;
   top: 130px;
+}
+.dark-down {
+  color: white;
+  background: linear-gradient(45deg, lightcoral, teal);
 }
 .grid-board {
   background-color: black;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: repeat(20, 1fr);
-  width: 360px;
-  height: 600px;
+  width: 390px;
+  height: 640px;
+  gap: 1px;
+  padding: 10px;
 }
 .modal {
   position: absolute;
@@ -202,4 +225,29 @@ aside {
   border-radius: 5px;
   font-size: 2rem;
   border: 4px solid black;
+}
+.dark-gamename {
+  border: 4px solid white;
+  background: transparent;
+}
+.white {
+  background: white;
+}
+.pink {
+  background: pink;
+}
+.cyan {
+  background: coral;
+}
+.yellow {
+  background: lightgoldenrodyellow;
+}
+.red {
+  background: crimson;
+}
+.green {
+  background: cyan;
+}
+.purple {
+  background: rgb(144, 28, 148);
 }

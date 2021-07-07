@@ -1,58 +1,48 @@
-import { useBoard } from "../Hooks/useBoard";
-import { usePiece } from "../Hooks/usePiece";
 import createGrids from "../helper";
-import useGame from "../Hooks/useGame";
+
+import useSwitch from "../Hooks/mode";
 
 export default function ControlPanel() {
-  const gameOver = useGame((store) => store.gameOver);
-
-  const [board, setBoard] = useBoard();
-  const [piece, setPiece] = usePiece();
-  function willColide() {
-    return true;
-  }
-
-  function movePiece(e) {
-    if (!gameOver) {
-      if (!willColide()) {
-        if (e.target.value === "left") {
-        }
-        if (e.target.value === "right") {
-        }
-        if (e.target.value === "down") {
-        }
-      }
-    }
-    return;
-  }
-
-  function rotatePiece() {
-    if (!gameOver) {
-      if (!willColide()) {
-      }
-    }
-    return;
-  }
-
+  const mode = useSwitch((store) => store.mode);
   return (
     <div>
-      <h2 className="game-name">Tetris</h2>
-      <section className="control-panel">
-        <button value="Rotate" className="rotate">
+      <h2
+        className={`game-name ${
+          mode === "Light" ? "light-gamename" : "dark-gamename"
+        }`}
+      >
+        Tetris
+      </h2>
+      <section
+        className={`control-panel ${
+          mode === "Light" ? "light-control-panel" : "dark-control-panel"
+        } `}
+      >
+        <button
+          value="Rotate"
+          className={`rotate ${
+            mode === "Light" ? "light-rotate" : "dark-rotate"
+          } `}
+        >
           Rotate
         </button>
-        <button value="Right" className="right">
+        <button
+          value="right"
+          className={`right ${
+            mode === "Light" ? "light-right" : "dark-right"
+          } `}
+        >
           Right
         </button>
-        <button value="Left" className="left">
+        <button
+          value="left"
+          className={`left ${mode === "Light" ? "light-left" : "dark-left"} `}
+        >
           Left
         </button>
         <button
           value="down"
-          className="down"
-          onClick={(e) => {
-            console.log(e.target.value);
-          }}
+          className={`down ${mode === "Light" ? "light-down" : "dark-down"} `}
         >
           Down
         </button>
