@@ -251,3 +251,7 @@ aside {
 .purple {
   background: rgb(144, 28, 148);
 }
+.game-over {
+  background: url(../src/game-over.jpeg);
+  background-size: 420px 110px;
+}
