@@ -9,6 +9,7 @@ const colors = {
 };
 export default function Cell({ color, piece, boardX, boardY }) {
   let cellColor = colors[color];
+
   //   if (piece.x === boardX && piece.y === boardY) {
   //     cellColor = piece.color;
   //   }
