@@ -1,0 +1,28 @@
+{
+  "score": [
+    {
+      "id": 1,
+      "history": 100
+    },
+    {
+      "id": 2,
+      "history": 110
+    },
+    {
+      "history": 380,
+      "id": 3
+    },
+    {
+      "history": 320,
+      "id": 4
+    },
+    {
+      "history": 300,
+      "id": 5
+    },
+    {
+      "history": 220,
+      "id": 6
+    }
+  ]
+}

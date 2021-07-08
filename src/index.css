@@ -26,6 +26,7 @@ aside .Dark {
     "aside board right" 100vh/
     2fr 3fr 1fr;
   gap: 30px;
+  height: 100vh;
 }
 
 .Dark {
@@ -43,7 +44,6 @@ aside {
 .information-board {
   padding: 20px;
   display: grid;
-  justify-content: center;
 }
 .information-board .label {
   height: 40px;
@@ -97,11 +97,12 @@ aside {
 }
 .board-light {
   background-image: url("../src/white.png");
-  background-repeat: repeat;
+  /* background-repeat: repeat; */
   background-size: cover;
 }
 .board-dark {
-  background-image: url("../src/darkstar.jpeg");
+  background-image: url("fire.jpeg");
+  background-size: contain;
 }
 .control-panel {
   grid-area: right;
@@ -180,12 +181,17 @@ aside {
   z-index: 1;
   color: lightpink;
   font-size: 2rem;
-  left: 100px;
+  left: 75px;
   top: 200px;
   display: grid;
-  place-items: center;
   width: 300px;
   gap: 20px;
+  place-items: center;
+  padding: 20px;
+}
+.page-one {
+  background: url("darkstar.jpeg");
+  background-size: cover;
 }
 .play {
   font-size: 3rem;
@@ -197,6 +203,9 @@ aside {
   animation-name: play;
   animation-duration: 3s;
   animation-iteration-count: infinite;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
 }
 .grid-board h1 {
   color: aquamarine;
@@ -204,7 +213,7 @@ aside {
   z-index: 1;
 }
 .cell {
-  border: 1px solid gray;
+  border: 1px solid rgb(63, 63, 63);
 }
 @keyframes play {
   from {
@@ -224,7 +233,9 @@ aside {
   text-align: center;
   height: 90px;
   display: grid;
-  place-content: center;
+  grid-template-columns: 100px auto;
+  align-items: center;
+  justify-content: center;
   border-radius: 5px;
   font-size: 2rem;
   border: 4px solid black;
@@ -274,4 +285,77 @@ aside {
   height: 130px;
   gap: 1px;
   padding: 10px;
+  justify-self: center;
+}
+.score-section {
+  display: grid;
+  grid-template-columns: 1fr 1.8fr;
+}
+.current-score-section,
+.high-score-section {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  height: 90px;
+}
+.score-section .actual {
+  padding: 5px 10px;
+}
+.score-grid-board {
+  display: grid;
+  align-content: center;
+  justify-items: left;
+  padding-left: 30px;
+  height: 35vh;
+  width: 66vh;
+  color: white;
+  background-image: url("jojo.jpeg");
+  background-size: contain;
+  position: absolute;
+  top: -150px;
+  left: -200px;
+  border: 10px solid gold;
+  animation-name: score-board;
+  animation-duration: 3s;
+  animation-iteration-count: initial;
+}
+.score-grid-board h1 {
+  color: gold;
+  text-shadow: 1px 1px 1px black;
+  margin: 10px;
+}
+.score-grid-board .history-score-board {
+  font-size: 100px;
+}
+
+@keyframes score-board {
+  from {
+    transform: scale(0.8);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  to {
+    transform: scale(0.8);
+  }
+}
+.page-game {
+  color: white;
+}
+.music-button {
+  background-color: white;
+  display: grid;
+  place-items: center;
+  grid-template-columns: auto auto;
+  gap: 5px;
+  padding: 5px 10px;
+  margin: 20px;
+  border: none;
+  border-radius: 10px;
+  color: blueviolet;
+  font-size: 1.5rem;
+  font-weight: bold;
+  transition: 0.2s;
+}
+.music-button:hover {
+  filter: brightness(1.2);
 }

@@ -13,15 +13,19 @@ export default function MiniCell({ color, nextPiece, miniBoardX, miniBoardY }) {
   //   if (piece.x === boardX && piece.y === boardY) {
   //     cellColor = piece.color;
   //   }
+  let copyPiece = JSON.parse(JSON.stringify(nextPiece));
+  copyPiece.x = 0;
 
-  for (let y = 0; y < nextPiece.shape.length; y++) {
-    for (let x = 0; x < nextPiece.shape[0].length; x++) {
-      let offsetX = nextPiece.x + x;
-      let offsetY = nextPiece.y + y;
+  for (let y = 0; y < copyPiece.shape.length; y++) {
+    for (let x = 0; x < copyPiece.shape[0].length; x++) {
       // 1 if cell in shape isnt empty 2 it matches the coodinate matched the board then we can have the matched color of piece
+      let offsetY = y;
+      if (copyPiece.shape.length <= 3) {
+        offsetY = offsetY + 1;
+      }
       if (
         nextPiece.shape[y][x] !== "" &&
-        offsetX === miniBoardX &&
+        x + 1 === miniBoardX &&
         offsetY === miniBoardY
       ) {
         cellColor = nextPiece.color;

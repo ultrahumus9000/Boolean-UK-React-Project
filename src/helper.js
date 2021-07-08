@@ -1,3 +1,4 @@
+import { useMusic } from "./Hooks/music";
 export default function createGrids() {
   let arrayColumn = Array(12).fill("");
   let arrayRows = Array(20).fill("");
@@ -13,4 +14,19 @@ export const createMiniGrids = () => {
     return arrayRow.map((col) => "");
   });
   return innitialBoard;
+};
+
+export const postRecord = (count) => {
+  fetch(" http://localhost:4000/score", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      history: count * 20,
+    }),
+  });
+};
+
+export const findHighestScore = (historyArray) => {
+  let scoreArray = historyArray.map((score) => score.history);
+  return Math.max(...scoreArray);
 };
