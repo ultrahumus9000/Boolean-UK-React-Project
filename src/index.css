@@ -35,18 +35,21 @@ aside .Dark {
 }
 aside {
   grid-area: aside;
-  padding: 20px;
+  padding: 10px;
   display: grid;
-  grid-template-rows: 0.5fr 6fr 3fr;
+  grid-template-rows: 0.5fr 6fr 2fr;
   gap: 20px;
 }
 .information-board {
   padding: 20px;
+  display: grid;
+  justify-content: center;
 }
 .information-board .label {
   height: 40px;
   text-align: center;
-  font-size: 1.1rem;
+  font-size: 1.3rem;
+  font-weight: bold;
 }
 .information-board-light {
   background: #07070720;
@@ -231,7 +234,7 @@ aside {
   background: transparent;
 }
 .white {
-  background: white;
+  background: lightskyblue;
 }
 .pink {
   background: pink;
@@ -254,4 +257,21 @@ aside {
 .game-over {
   background: url(../src/game-over.jpeg);
   background-size: 420px 110px;
+}
+.actual {
+  text-align: center;
+  font-size: 2rem;
+  background-color: darksalmon;
+  margin: 0px 30px 10px 30px;
+  border-radius: 20px;
+}
+.mini-board {
+  background-color: black;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  width: 130px;
+  height: 130px;
+  gap: 1px;
+  padding: 10px;
 }

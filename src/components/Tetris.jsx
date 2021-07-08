@@ -6,6 +6,7 @@ import useSwitch from "../Hooks/mode";
 import { randomTetriminos } from "../Hooks/tetrominos";
 import Cell from "./Cell";
 import useGame from "../Hooks/useGame";
+import { createMiniGrids } from "../helper";
 
 export default function GameStart() {
   const { mode, toggleMode } = useSwitch((store) => {
@@ -19,9 +20,15 @@ export default function GameStart() {
   const [piece, setPiece] = useState(randomTetriminos());
   const [board, setBoard] = useState(createGrids());
   const [nextPiece, SetPiece] = useState(randomTetriminos());
+  const [miniBoard, setMiniBoard] = useState(createMiniGrids());
+  const [count, setCount] = useState(0);
+  const [row, setRow] = useState(0);
+  const [speed, setSpeed] = useState(1);
+  const [level, setLevel] = useState(1);
 
   const placeOnBoard = useCallback(() => {
     let newBoard = JSON.parse(JSON.stringify(board));
+    let newCount = count;
     for (
       let yRelativeToPiece = 0;
       yRelativeToPiece < piece.shape.length;
@@ -50,9 +57,18 @@ export default function GameStart() {
     let gap = board.length - newBoard.length;
     for (let i = 0; i < gap; i++) {
       newBoard.unshift(Array(12).fill(""));
+      newCount++;
+      console.log(count);
     }
+    let rowCount = newBoard.filter((row) =>
+      row.every((cell) => cell === "")
+    ).length;
 
+    rowCount = 20 - rowCount;
+    setRow(rowCount);
     setBoard(newBoard);
+    newCount++;
+    setCount(newCount);
     setPiece(randomTetriminos());
   }, [piece.shape, piece.x, piece.y, board, stopGame]);
 
@@ -111,10 +127,14 @@ export default function GameStart() {
   );
 
   useEffect(() => {
+    if (row >= 9) {
+      setSpeed(0.7);
+    }
+    let timeInterval = (1000 / level) * speed;
+    console.log(timeInterval);
     let clearId = setInterval(() => {
       updatePiecePos(0, 1);
-    }, 1000);
-    console.log(clearId);
+    }, timeInterval);
     return () => {
       clearInterval(clearId);
     };
@@ -123,10 +143,10 @@ export default function GameStart() {
   function restart() {
     startGame();
     setPiece(randomTetriminos());
+    setCount(0);
     setBoard(createGrids());
+    setRow(0);
   }
-
-  console.log(piece);
 
   function movePiece(e) {
     if (!gameOver) {
@@ -146,17 +166,19 @@ export default function GameStart() {
     if (!gameOver) {
       let copyPiece = JSON.parse(JSON.stringify(piece));
       let copyPieceShape = copyPiece.shape;
-      let rotatePiece = [];
+      let rotatePieceShape = [];
       for (let x = 0; x < copyPieceShape[0].length; x++) {
         let row = [];
         for (let y = 0; y < copyPieceShape.length; y++) {
           row.unshift(copyPieceShape[y][x]);
         }
-        rotatePiece.push(row);
+        rotatePieceShape.push(row);
       }
-      console.log(rotatePiece);
+      console.log(rotatePieceShape);
+      let rotatePiece = { shape: rotatePieceShape, x: piece.x, y: piece.y };
       if (!willCollide(0, 0, rotatePiece)) {
-        setPiece(rotatePiece);
+        console.log("haah");
+        setPiece({ ...piece, shape: rotatePieceShape });
       }
     }
     return;
@@ -176,26 +198,28 @@ export default function GameStart() {
           } `}
         >
           <p className="label">Score</p>
-          <p className={`actual`}>Score</p>
+          <p className={`actual`}>{count * 20}</p>
           <p className="label">Current Row</p>
-          <p className={`actual`}>Row</p>
+          <p className={`actual`}>{row}</p>
           <p className="label">Level</p>
-          <p className={`actual`}>Level</p>
-          <p className="label">Next</p>
-          <p>Next</p>
-          <button onClick={placeOnBoard}>Place </button>
+          <p className={`actual`}>{level}</p>
+          <p className="label">Next Piece</p>
+          <section className="mini-board">
+            {miniBoard.map((row, index) => {
+              return row.map((cell, index) => <div className="cell"></div>);
+            })}
+          </section>
         </div>
         <div className="panel">
           <button
             className={`${mode === "Light" ? "button-light" : "button-dark"}`}
+            onClick={() => {
+              setLevel(level + 1);
+            }}
           >
             Next Level
           </button>
-          <button
-            className={`${mode === "Light" ? "button-light" : "button-dark"}`}
-          >
-            Pause
-          </button>
+
           <button
             className={`${mode === "Light" ? "button-light" : "button-dark"}`}
             onClick={restart}

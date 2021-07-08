@@ -6,3 +6,11 @@ export default function createGrids() {
   });
   return innitialBoard;
 }
+
+export const createMiniGrids = () => {
+  const arrayRow = Array(4).fill("");
+  let innitialBoard = arrayRow.map((row) => {
+    return arrayRow.map((col) => "");
+  });
+  return innitialBoard;
+};
