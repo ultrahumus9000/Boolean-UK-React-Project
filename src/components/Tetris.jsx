@@ -127,7 +127,7 @@ export default function GameStart() {
   );
 
   useEffect(() => {
-    if (row >= 9) {
+    if (count >= 15) {
       setSpeed(0.7);
     }
     let timeInterval = (1000 / level) * speed;
