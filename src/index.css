@@ -357,7 +357,7 @@ aside {
   transition: 0.2s;
 }
 .music-button:hover {
-  filter: brightness(1.2);
+  background-color: lightsalmon;
 }
 
 .pause-button {
@@ -374,4 +374,8 @@ aside {
   font-size: 1.5rem;
   font-weight: bold;
   transition: 0.2s;
+}
+.pause-button:hover {
+  filter: hue-rotate(90deg);
+  background-color: cyan;
 }

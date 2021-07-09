@@ -189,6 +189,7 @@ export default function GameStart() {
     if (music) {
       backgroundMusic.play();
     }
+    setPaused(false);
   }
 
   function movePiece(e) {
