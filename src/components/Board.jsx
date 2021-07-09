@@ -28,7 +28,7 @@ export default function Board() {
             viewBox="0 0 491.8 491.8"
             xmlSpace="preserve"
           >
-            <style>{".prefix__st3{fill:#191919}"}</style>
+            <style>{".prefix__st3{fill:#7fffd4}"}</style>
             <path
               className="prefix__st3"
               d="M144.6 203.6c-2.2.7-6.5-1.3-6.1 2.8.4 3.7 2.3 9 6.2 9.1 4.1.2 5.9-5.3 6.4-8.8.6-4.8-4.1-2.2-6.5-3.1zM145 156.6c-4.2-.3-5.7 5.1-6.4 8.6-1 5.3 3.9 2.3 6.5 3.6 1.7-1.7 6.6 1.8 6.1-3.2-.3-3.6-2.3-8.8-6.2-9z"

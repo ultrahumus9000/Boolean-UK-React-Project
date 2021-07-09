@@ -190,14 +190,14 @@ aside {
   padding: 20px;
 }
 .page-one {
-  background: url("darkstar.jpeg");
+  background: url(https://static.wixstatic.com/media/4cbe8d_f1ed2800a49649848102c68fc5a66e53~mv2.gif);
   background-size: cover;
 }
 .play {
   font-size: 3rem;
   color: white;
   padding: 5px 25px;
-  background: linear-gradient(45deg, rgb(155, 155, 226), rgb(240, 169, 169));
+  background: transparent;
   border: none;
   border-radius: 5px;
   animation-name: play;
@@ -208,7 +208,7 @@ aside {
   align-items: center;
 }
 .grid-board h1 {
-  color: aquamarine;
+  color: #7fffd4;
   font-size: 2rem;
   z-index: 1;
 }
