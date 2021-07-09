@@ -1,7 +1,7 @@
 import useSwitch from "../Hooks/mode";
 import { useMusic } from "../Hooks/music";
 
-const backgroundMusic = new Audio("../../public/bgmusic.mp3");
+import { backgroundMusic } from "../App";
 
 export default function ControlPanel() {
   const mode = useSwitch((store) => store.mode);
@@ -127,6 +127,7 @@ export default function ControlPanel() {
                   console.log("playing");
                 })
                 .catch((error) => {
+                  console.log(error);
                   console.log("playback prevented");
                 });
             }}

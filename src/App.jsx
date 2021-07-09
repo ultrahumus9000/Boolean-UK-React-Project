@@ -6,6 +6,8 @@ import ControlPanel from "./components/Right";
 import useSwitch from "./Hooks/mode";
 import React from "react";
 
+export const backgroundMusic = new Audio("/bgmusic.mp3");
+backgroundMusic.loop = true;
 function App() {
   const mode = useSwitch((store) => store.mode);
 

@@ -11,7 +11,7 @@ import MiniCell from "./MiniCell";
 import { postRecord, findHighestScore } from "../helper";
 import { useGameHistory } from "../Hooks/useGameHistory";
 import { useMusic } from "../Hooks/music";
-const backgroundMusic = new Audio("../../public/bgmusic.mp3");
+import { backgroundMusic } from "../App";
 
 export default function GameStart() {
   const { mode, toggleMode } = useSwitch((store) => {
@@ -63,7 +63,8 @@ export default function GameStart() {
       stopGame();
       postRecord(count);
       if (music) {
-        const gameOverMusic = new Audio("../../public/gameover.wav");
+        backgroundMusic.pause();
+        const gameOverMusic = new Audio("/gameover.wav");
         gameOverMusic.play();
       }
       return;
@@ -75,7 +76,7 @@ export default function GameStart() {
       newBoard.unshift(Array(12).fill(""));
       newCount++;
       if (music) {
-        const gameOverMusic = new Audio("../../public/clear.wav");
+        const gameOverMusic = new Audio("/clear.wav");
         gameOverMusic.play();
       }
     }
@@ -91,7 +92,7 @@ export default function GameStart() {
     setNextPiece(randomTetriminos());
     setPiece(nextPiece);
     if (music) {
-      const gameOverMusic = new Audio("../../public/fall.wav");
+      const gameOverMusic = new Audio("/fall.wav");
       gameOverMusic.play();
     }
   }, [piece.shape, piece.x, piece.y, board, stopGame]);
@@ -167,6 +168,10 @@ export default function GameStart() {
     };
   }, [updatePiecePos]);
 
+  useEffect(() => {
+    document.addEventListener("keydown", moveKey);
+  }, []);
+
   function restart() {
     startGame();
     setPiece(randomTetriminos());
@@ -175,6 +180,9 @@ export default function GameStart() {
     setBoard(createGrids());
     setSpeed(1);
     setRow(0);
+    if (music) {
+      backgroundMusic.play();
+    }
   }
 
   function movePiece(e) {
@@ -226,6 +234,40 @@ export default function GameStart() {
       }
     }
     return;
+  }
+
+  function moveKey(e) {
+    console.log("move key", e);
+    if (!gameOver) {
+      if (e.key === "ArrowLeft") {
+        if (music) {
+          const pressMusic = new Audio("../../press.mp3");
+          pressMusic.play();
+        }
+        updatePiecePos(-1, 0);
+      }
+      if (e.key === "ArrowRight") {
+        if (music) {
+          const pressMusic = new Audio("../../press.mp3");
+          pressMusic.play();
+        }
+        updatePiecePos(1, 0);
+      }
+      if (e.key === "ArrowDown") {
+        if (music) {
+          const pressMusic = new Audio("../../press.mp3");
+          pressMusic.play();
+        }
+        updatePiecePos(0, 1);
+      }
+      if (e.key === "ArrowUp") {
+        if (music) {
+          const pressMusic = new Audio("../../press.mp3");
+          pressMusic.play();
+        }
+        rotatePiece();
+      }
+    }
   }
 
   return (
