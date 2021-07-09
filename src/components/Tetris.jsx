@@ -33,6 +33,7 @@ export default function GameStart() {
   const [row, setRow] = useState(0);
   const [speed, setSpeed] = useState(1);
   const [level, setLevel] = useState(1);
+  const [paused, setPaused] = useState(false);
   const history = useGameHistory((store) => store.history);
   const fetchHistory = useGameHistory((store) => store.fetchHistory);
   let highestScore = findHighestScore(history);
@@ -155,6 +156,9 @@ export default function GameStart() {
   }, [currentScore]);
 
   useEffect(() => {
+    if (paused) {
+      return;
+    }
     if (count >= 15) {
       setSpeed(0.7);
     }
@@ -166,11 +170,13 @@ export default function GameStart() {
     return () => {
       clearInterval(clearId);
     };
-  }, [updatePiecePos]);
+  }, [updatePiecePos, paused]);
 
   useEffect(() => {
+    if (paused) return;
     document.addEventListener("keydown", moveKey);
-  }, []);
+    return () => document.removeEventListener("keydown", moveKey);
+  }, [piece, paused]);
 
   function restart() {
     startGame();
@@ -186,10 +192,11 @@ export default function GameStart() {
   }
 
   function movePiece(e) {
-    if (!gameOver) {
+    if (!gameOver && !paused) {
       if (e.target.value === "left") {
         if (music) {
           const pressMusic = new Audio("../../press.mp3");
+          pressMusic.volume = 0.3;
           pressMusic.play();
         }
         updatePiecePos(-1, 0);
@@ -198,6 +205,7 @@ export default function GameStart() {
         if (music) {
           const pressMusic = new Audio("../../press.mp3");
           pressMusic.play();
+          pressMusic.volume = 0.3;
         }
         updatePiecePos(1, 0);
       }
@@ -205,6 +213,7 @@ export default function GameStart() {
         if (music) {
           const pressMusic = new Audio("../../press.mp3");
           pressMusic.play();
+          pressMusic.volume = 0.3;
         }
         updatePiecePos(0, 1);
       }
@@ -212,7 +221,7 @@ export default function GameStart() {
   }
 
   function rotatePiece() {
-    if (!gameOver) {
+    if (!gameOver && !paused) {
       let copyPiece = JSON.parse(JSON.stringify(piece));
       let copyPieceShape = copyPiece.shape;
       let rotatePieceShape = [];
@@ -230,6 +239,7 @@ export default function GameStart() {
         if (music) {
           const pressMusic = new Audio("../../press.mp3");
           pressMusic.play();
+          pressMusic.volume = 0.3;
         }
       }
     }
@@ -238,11 +248,12 @@ export default function GameStart() {
 
   function moveKey(e) {
     console.log("move key", e);
-    if (!gameOver) {
+    if (!gameOver && !paused) {
       if (e.key === "ArrowLeft") {
         if (music) {
           const pressMusic = new Audio("../../press.mp3");
           pressMusic.play();
+          pressMusic.volume = 0.3;
         }
         updatePiecePos(-1, 0);
       }
@@ -250,6 +261,7 @@ export default function GameStart() {
         if (music) {
           const pressMusic = new Audio("../../press.mp3");
           pressMusic.play();
+          pressMusic.volume = 0.3;
         }
         updatePiecePos(1, 0);
       }
@@ -257,13 +269,15 @@ export default function GameStart() {
         if (music) {
           const pressMusic = new Audio("../../press.mp3");
           pressMusic.play();
+          pressMusic.volume = 0.3;
         }
         updatePiecePos(0, 1);
       }
       if (e.key === "ArrowUp") {
         if (music) {
-          const pressMusic = new Audio("../../press.mp3");
+          const pressMusic = new Audio("press.mp3");
           pressMusic.play();
+          pressMusic.volume = 0.3;
         }
         rotatePiece();
       }
@@ -523,6 +537,84 @@ export default function GameStart() {
                   className="prefix__a"
                   d="M34.78 27.78a2 2 0 01-1.41-3.41 9 9 0 000-12.74 2 2 0 012.82-2.82 13 13 0 010 18.38 2 2 0 01-1.41.59z"
                 />
+              </svg>
+            </button>
+          )}
+        </section>
+        <section className="pause-section">
+          {paused ? (
+            <button
+              className="pause-button"
+              onClick={() => {
+                setPaused(false);
+              }}
+            >
+              Play{" "}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                x="0px"
+                y="0px"
+                viewBox="0 0 57 57"
+                xmlSpace="preserve"
+                width="100px"
+                height="40px"
+              >
+                <path
+                  d="M29 27.528v-12.5c0-2.475 2.025-4.5 4.5-4.5h0c2.475 0 4.5 2.025 4.5 4.5v3.5c0 2.2 1.8 4 4 4h0c2.2 0 4-1.8 4-4v-16"
+                  fill="none"
+                  stroke="#38454f"
+                  strokeWidth={2}
+                  strokeLinecap="round"
+                  strokeMiterlimit={10}
+                />
+                <path
+                  d="M45.241 55.471c-1.303.022-5.452-.268-9.314-1.331-4.514-1.242-10.121-1.237-14.637 0-3.892 1.066-7.521 1.354-9.314 1.331C5.142 55.383 0 48.52 0 41.499c0-7.684 6.287-13.972 13.972-13.972h29.274C50.93 27.528 57 33.815 57 41.499c0 7.021-4.925 13.856-11.759 13.972z"
+                  fill="#cbd4d8"
+                />
+                <path
+                  fill="none"
+                  stroke="#afb6bb"
+                  strokeWidth={2}
+                  strokeLinecap="round"
+                  strokeMiterlimit={10}
+                  d="M27 31.528L31.632 31.528"
+                />
+                <circle cx={36} cy={41.528} r={3} fill="#43b05c" />
+                <circle cx={50} cy={41.528} r={3} fill="#dd352e" />
+                <circle cx={43} cy={48.528} r={3} fill="#ebba16" />
+                <circle cx={43} cy={34.528} r={3} fill="#366db6" />
+                <path
+                  fill="#38454f"
+                  d="M22 38.528L18 38.528 18 34.528 12 34.528 12 38.528 8 38.528 8 44.528 12 44.528 12 48.528 18 48.528 18 44.528 22 44.528z"
+                />
+              </svg>
+            </button>
+          ) : (
+            <button
+              className="pause-button"
+              onClick={() => {
+                setPaused(true);
+              }}
+            >
+              Pause
+              <svg
+                width="40px"
+                height="40px"
+                viewBox="0 0 104 104"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g
+                  transform="translate(-1098 -903) translate(1100 905)"
+                  stroke="#1565C0"
+                  strokeWidth={3.5}
+                  fill="none"
+                  fillRule="evenodd"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <circle fill="#E2F3FB" cx={50} cy={50} r={50} />
+                  <path d="M30 30h15v40H30V30zm25 0h15v40H55V30z" fill="#FFF" />
+                </g>
               </svg>
             </button>
           )}

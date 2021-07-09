@@ -13,15 +13,15 @@
       "id": 3
     },
     {
-      "history": 220,
+      "history": 180,
       "id": 4
     },
     {
-      "history": 340,
+      "history": 380,
       "id": 5
     },
     {
-      "history": 440,
+      "history": 340,
       "id": 6
     },
     {
@@ -33,36 +33,24 @@
       "id": 8
     },
     {
-      "history": 320,
+      "history": 340,
       "id": 9
     },
     {
-      "history": 360,
+      "history": 340,
       "id": 10
     },
     {
-      "history": 260,
+      "history": 340,
       "id": 11
     },
     {
-      "history": 280,
+      "history": 340,
       "id": 12
     },
     {
-      "history": 180,
+      "history": 340,
       "id": 13
-    },
-    {
-      "history": 240,
-      "id": 14
-    },
-    {
-      "history": 60,
-      "id": 15
-    },
-    {
-      "history": 200,
-      "id": 16
     }
   ]
 }

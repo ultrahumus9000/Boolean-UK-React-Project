@@ -342,7 +342,7 @@ aside {
   color: white;
 }
 .music-button {
-  background-color: white;
+  /* background-color: white; */
   display: grid;
   place-items: center;
   grid-template-columns: auto auto;
@@ -358,4 +358,20 @@ aside {
 }
 .music-button:hover {
   filter: brightness(1.2);
+}
+
+.pause-button {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  grid-template-columns: 60px 50px;
+  gap: 20px;
+  padding: 5px 10px;
+  margin: 20px;
+  border: none;
+  border-radius: 10px;
+  color: blueviolet;
+  font-size: 1.5rem;
+  font-weight: bold;
+  transition: 0.2s;
 }

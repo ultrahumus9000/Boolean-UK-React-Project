@@ -8,6 +8,7 @@ import React from "react";
 
 export const backgroundMusic = new Audio("/bgmusic.mp3");
 backgroundMusic.loop = true;
+backgroundMusic.volume = 0.7;
 function App() {
   const mode = useSwitch((store) => store.mode);
 
