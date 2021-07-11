@@ -94,6 +94,3 @@ CSS deficiency: responsive part was not taken into consideration
 <img width="1436" alt="start" src="https://user-images.githubusercontent.com/81304801/125202680-80ca0280-e26c-11eb-9112-582522010afa.png">
 <img width="1437" alt="light version" src="https://user-images.githubusercontent.com/81304801/125202693-8cb5c480-e26c-11eb-9d14-08062260ac59.png">
 <img width="1430" alt="dark version" src="https://user-images.githubusercontent.com/81304801/125202697-950dff80-e26c-11eb-9bcc-58cbcf915a9a.png">
-
-
-
