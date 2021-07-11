@@ -78,3 +78,10 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+# UI design was inspired by tetris game from nintendo and https://chvin.github.io/react-tetris/
+
+# code explain as follows
+1. mainly using for loops to find which cell in the main page need to be painted instead of immuateble change the cell in the main state of board.
+2. using useEffect and useCallback to avoid infinite loop and achieve ticking and droping movements.
+3. create own Json server to record history score records
