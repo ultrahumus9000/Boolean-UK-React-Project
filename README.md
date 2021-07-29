@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+### Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -13,7 +13,7 @@ url: 1. https://pic2.me/wallpaper/329167.html
      7. https://freeicons.io/filter/popular/all
 
 
-## Available Scripts
+### Available Scripts
 
 In the project directory, you can run:
 
@@ -84,12 +84,12 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 CSS deficiency: responsive part was not taken into consideration
 
-# code explain as follows
+### code explain as follows
 1. mainly using for loops to find which cell in the main page need to be painted instead of immuateble change the cell in the main state of board.
 2. using useEffect and useCallback to avoid infinite loop and achieve ticking and droping movements.
 3. create own Json server to record history score records
 
-# Preview
+### Preview
 
 <img width="1436" alt="start" src="https://user-images.githubusercontent.com/81304801/125202680-80ca0280-e26c-11eb-9112-582522010afa.png">
 <img width="1437" alt="light version" src="https://user-images.githubusercontent.com/81304801/125202693-8cb5c480-e26c-11eb-9d14-08062260ac59.png">
