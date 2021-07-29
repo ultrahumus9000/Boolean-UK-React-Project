@@ -5,11 +5,17 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 # Images are applied from copyright free online resources, study purpose only no commerical use intention
 
 url: 1. https://pic2.me/wallpaper/329167.html
+
      2. https://wallpapers.com/wallpapers/darth-vader-black-helmet-2yu73wmbfzee689n.html
+     
      3. https://static.wixstatic.com/media/4cbe8d_f1ed2800a49649848102c68fc5a66e53~mv2.gif
+     
      4. https://4kwallpaper.wiki/abstract-fire-wallpapers.html
+     
      5. https://images.wallpapersden.com/image/download/star-platinum_a2xuZ2aUmZqaraWkpJRobWllrWdpZWU.jpg
+     
      6. https://static.vecteezy.com/system/resources/thumbnails/001/313/798/small/game-over-technology-interface-hud-vector.jpg
+     
      7. https://freeicons.io/filter/popular/all
 
 
@@ -80,7 +86,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
-# UI design was inspired by tetris game from nintendo and https://chvin.github.io/react-tetris/
+### UI design was inspired by tetris game from nintendo and https://chvin.github.io/react-tetris/
 
 CSS deficiency: responsive part was not taken into consideration
 
