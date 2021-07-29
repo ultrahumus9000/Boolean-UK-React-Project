@@ -2,7 +2,7 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-# Images are applied from copyright free online resources, study purpose only no commerical use intention
+### Images are applied from copyright free online resources, study purpose only no commerical use intention
 
 url: 1. https://pic2.me/wallpaper/329167.html
 
