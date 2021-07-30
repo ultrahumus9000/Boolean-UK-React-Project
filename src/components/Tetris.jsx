@@ -305,7 +305,7 @@ export default function GameStart() {
             </section>
             <section className="high-score-section">
               <p className="label">highest Score </p>
-              <p className={`actual`}>{highestScore}</p>
+              <p className={`actual`}>0</p>
             </section>
           </div>
           <p className="label">Current Row</p>
