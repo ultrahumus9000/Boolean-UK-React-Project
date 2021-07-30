@@ -19,6 +19,8 @@ url:
      
      7. https://freeicons.io/filter/popular/all
 
+### Try the demo here 
+https://lintris.vercel.app
 
 ### Available Scripts
 
