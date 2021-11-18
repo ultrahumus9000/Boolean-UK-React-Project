@@ -91,7 +91,6 @@ aside {
   width: 30vw;
   justify-content: center;
   padding: 30px;
-  padding-bottom: 50px;
   border-radius: 10px;
   position: relative;
 }
@@ -171,8 +170,8 @@ aside {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: repeat(20, 1fr);
-  width: 390px;
-  height: 640px;
+  width: 20rem;
+  height: 34rem;
   gap: 1px;
   padding: 10px;
 }

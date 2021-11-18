@@ -163,7 +163,7 @@ export default function GameStart() {
       setSpeed(0.7);
     }
     let timeInterval = (1000 / level) * speed;
-    console.log(timeInterval);
+
     let clearId = setInterval(() => {
       updatePiecePos(0, 1);
     }, timeInterval);
@@ -248,7 +248,6 @@ export default function GameStart() {
   }
 
   function moveKey(e) {
-    console.log("move key", e);
     if (!gameOver && !paused) {
       if (e.key === "ArrowLeft") {
         if (music) {
