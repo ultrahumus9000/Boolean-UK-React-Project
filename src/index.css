@@ -20,12 +20,14 @@ aside .Dark {
 .App {
   background: url("light-mode.jpeg");
   background-size: 180vw;
-  padding: 50px;
+  padding: 30px;
   display: grid;
-  grid-template: "aside board right" 1fr/2fr 3fr 1fr;
+  grid-template: "aside board right" 100vh/2fr 3fr 1fr;
+  padding-bottom: 10rem;
   grid-gap: 30px;
   gap: 30px;
   height: 100vh;
+  overflow: hidden;
 }
 
 .Dark {
@@ -37,15 +39,16 @@ aside {
   grid-area: aside;
   padding: 10px;
   display: grid;
-  grid-template-rows: 0.5fr 6fr 2fr;
-  gap: 20px;
+  grid-template-rows: 0.5fr 4fr 1fr;
+  gap: 10px;
+  height: 80vh;
 }
 .information-board {
-  padding: 20px;
   display: grid;
+  padding: 5px;
 }
 .information-board .label {
-  height: 40px;
+  height: 2rem;
   text-align: center;
   font-size: 1.3rem;
   font-weight: bold;
@@ -61,7 +64,6 @@ aside {
 .panel {
   display: grid;
   gap: 10px;
-  padding: 20px 0px;
 }
 .button-dark {
   background: linear-gradient(45deg, teal, coral);
@@ -87,11 +89,11 @@ aside {
 .board {
   grid-area: board;
   display: grid;
-  width: 30vw;
   justify-content: center;
   padding: 30px 30px 30px;
   border-radius: 10px;
   position: relative;
+  height: 90vh;
 }
 .board-light {
   background-image: url("../src/white.png");
@@ -375,4 +377,28 @@ aside {
 .pause-button:hover {
   filter: hue-rotate(90deg);
   background-color: cyan;
+}
+@media screen and (max-width: 1100px) {
+  .game-name {
+    display: none;
+  }
+  .control-panel {
+    display: none;
+  }
+  .music-button {
+    display: none;
+  }
+  .pause-button {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  aside {
+    display: none;
+  }
+  .App {
+    padding: 0;
+    justify-self: center;
+  }
 }
