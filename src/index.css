@@ -22,9 +22,8 @@ aside .Dark {
   background-size: 180vw;
   padding: 50px;
   display: grid;
-  grid-template:
-    "aside board right" 1fr/
-    2fr 3fr 1fr;
+  grid-template: "aside board right" 1fr/2fr 3fr 1fr;
+  grid-gap: 30px;
   gap: 30px;
   height: 100vh;
 }
@@ -90,13 +89,12 @@ aside {
   display: grid;
   width: 30vw;
   justify-content: center;
-  padding: 30px;
+  padding: 30px 30px 30px;
   border-radius: 10px;
   position: relative;
 }
 .board-light {
   background-image: url("../src/white.png");
-  /* background-repeat: repeat; */
   background-size: cover;
 }
 .board-dark {

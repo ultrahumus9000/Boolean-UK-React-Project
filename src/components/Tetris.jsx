@@ -233,7 +233,7 @@ export default function GameStart() {
         }
         rotatePieceShape.push(row);
       }
-      console.log(rotatePieceShape);
+
       let rotatePiece = { shape: rotatePieceShape, x: piece.x, y: piece.y };
       if (!willCollide(0, 0, rotatePiece)) {
         setPiece({ ...piece, shape: rotatePieceShape });
